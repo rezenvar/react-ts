@@ -25,6 +25,7 @@ config.stats = 'none';
 
 
 config.entry = [
+    root('src/app/vendor.ts'),
     root('src/app/app.tsx')
 ];
 
@@ -105,6 +106,10 @@ config.module.rules = [
 
 
 config.plugins = [
+    new webpack.ProvidePlugin({
+        React : 'react',
+        ReactDOM: 'react-dom'
+    }),
     new HtmlWebpackPlugin({
         template: root('src/public/index.html'),
         filename: 'index.html',

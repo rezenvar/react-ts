@@ -1,8 +1,7 @@
-import 'babel-polyfill';
 import './../styles/main.scss';
+
 import { render } from 'react-dom';
 import * as React from 'react';
-
 
 
 import * as reduceReducers from 'reduce-reducers';

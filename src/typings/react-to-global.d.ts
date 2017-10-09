@@ -1,0 +1,1 @@
+// global defenition for react wiil be here
