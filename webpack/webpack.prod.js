@@ -9,7 +9,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
 
-
 const {
 	getStyleLoaders
 } = require('./webpack.js');
@@ -33,8 +32,7 @@ const prodConfig = {
 				comments: false
 			},
 			minimize: true,
-			sourceMap: false,
-			exclude: [/node_modules/]
+			sourceMap: false
 		}),
 		new ExtractTextPlugin('style.css'),
 		new CleanWebpackPlugin(['dist'], {

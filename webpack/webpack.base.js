@@ -59,11 +59,12 @@ config.module = {};
 config.module.rules = [
     {
         test: /\.(ts|tsx)$/,
-        use: ['react-hot-loader/webpack','awesome-typescript-loader'],
+        use: ['react-hot-loader/webpack', 'awesome-typescript-loader'],
+        include: root('src'),
         exclude: /node_modules/
     },
     {
-        test: /\.(jpe?g|png|gif|svg)$/i, 
+        test: /\.(jpe?g|png|gif|svg)$/i,
         use: [{
             loader: 'file-loader',
             options: {
@@ -107,10 +108,22 @@ config.plugins = [
     new HtmlWebpackPlugin({
         template: root('src/public/index.html'),
         filename: 'index.html',
-        inject: true
+        inject: true,
+        minify: process.env.NODE_ENV === 'production' && {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+        }
     }),
     new webpack.DefinePlugin({
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
         '__DEV__': process.env.__DEV__,
         '__LOCAL__': process.env.__LOCAL__
     }),

@@ -7,13 +7,24 @@ import { rootReducer } from './reducers';
 import { createEpicMiddleware } from 'redux-observable';
 
 export const configureStore = (history) => {
+	const epicMiddleware =  createEpicMiddleware(rootEpic);
 	const store = createStore(rootReducer, composeWithDevTools(
 		applyMiddleware(
 			thunk, 
-			createEpicMiddleware(rootEpic),
+			epicMiddleware,
 			routerMiddleware(history),
 		)
 	));
+
+	if (module.hot) {
+		module.hot.accept('./reducers', () => {
+			store.replaceReducer(require('./reducers').rootReducer);
+		});
+		module.hot.accept('./epics', () => {
+			epicMiddleware.replaceEpic(require('./epics').rootEpic);
+		});
+	}
+
 	return store;
 }
 

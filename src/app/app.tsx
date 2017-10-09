@@ -1,8 +1,10 @@
 import 'babel-polyfill';
 import './../styles/main.scss';
-
-import * as ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import * as React from 'react';
+
+
+
 import * as reduceReducers from 'reduce-reducers';
 import { configureStore } from './store/store';
 import { createStore } from 'redux';
@@ -17,7 +19,7 @@ const history = createHistory();
 const store = configureStore(history);
 
 const renderApp = (RootComponent) => {
-	ReactDOM.render(
+	render(
 		<Provider store={store}  >
 			<RootComponent history={history} />
 		</ Provider>,
