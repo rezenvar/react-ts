@@ -1,7 +1,8 @@
+
 import './../styles/main.scss';
 
-import { render } from 'react-dom';
-import * as React from 'react';
+// import { render } from 'react-dom';
+// import * as React from 'react';
 
 
 import * as reduceReducers from 'reduce-reducers';
@@ -18,7 +19,7 @@ const history = createHistory();
 const store = configureStore(history);
 
 const renderApp = (RootComponent) => {
-	render(
+	ReactDOM.render(
 		<Provider store={store}  >
 			<RootComponent history={history} />
 		</ Provider>,

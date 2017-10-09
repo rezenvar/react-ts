@@ -1,4 +1,5 @@
-import * as React from 'react';
+
+
 import { ConnectedRouter } from 'react-router-redux';
 import { Switch, Route, Link } from 'react-router-dom';
 

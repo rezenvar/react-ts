@@ -9,3 +9,6 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 
 
+// react 
+import 'react';
+import 'react-dom';
