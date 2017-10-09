@@ -2,7 +2,8 @@ const webpack = require('webpack');
 const config = require('./webpack.base');
 const merge = require('webpack-merge');
 const path = require('path');
-
+// plugins
+const Visualizer = require('webpack-visualizer-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -51,13 +52,7 @@ const prodConfig = {
 				)
 			}
 		}),
-		// new CompressionPlugin({
-		// 	asset: '[path].gz[query]',
-		// 	algorithm: 'gzip',
-		// 	test: /\.(js)$/,
-		// 	threshold: 10240,
-		// 	minRatio: 0.8
-		// })
+		new Visualizer()
 	]
 }
 
@@ -65,5 +60,5 @@ const prodConfig = {
 
 
 
-
+console.log(process.env.NODE_ENV)
 module.exports = merge(config, prodConfig);

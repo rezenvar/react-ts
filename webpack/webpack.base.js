@@ -59,7 +59,7 @@ config.module = {};
 config.module.rules = [
     {
         test: /\.(ts|tsx)$/,
-        use: ['awesome-typescript-loader'],
+        use: ['react-hot-loader/webpack','awesome-typescript-loader'],
         exclude: /node_modules/
     },
     {
@@ -114,6 +114,7 @@ config.plugins = [
         '__DEV__': process.env.__DEV__,
         '__LOCAL__': process.env.__LOCAL__
     }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new FriendlyErrorsWebpackPlugin(),
     new SimpleProgressPlugin({
         progressOptions: {

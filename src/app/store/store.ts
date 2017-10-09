@@ -1,5 +1,5 @@
-import { rootEpic } from './epics';
 import thunk from 'redux-thunk';
+import { rootEpic } from './epics';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { applyMiddleware, createStore } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';

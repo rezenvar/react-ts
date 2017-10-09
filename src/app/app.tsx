@@ -1,17 +1,16 @@
-
 import 'babel-polyfill';
-import 'reflect-metadata';
-import 'rxjs';
 import './../styles/main.scss';
 
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
+import * as reduceReducers from 'reduce-reducers';
 import { configureStore } from './store/store';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { createBrowserHistory, createHashHistory } from 'history';
 import { Root } from './containers/Root';
-import * as reduceReducers from 'reduce-reducers';
+
+
 
 const createHistory = () => __DEV__ ? createHashHistory() : createBrowserHistory();
 const history = createHistory();
@@ -26,9 +25,17 @@ const renderApp = (RootComponent) => {
 	)
 };
 
-// TODO: Прикрутить hot reload
-
 renderApp(Root);
+
+
+if (module.hot) {
+	module.hot.accept('./containers/Root.tsx', () => {
+		renderApp(require('./containers/Root').Root);
+	});
+}
+
+
+
 
 
 
