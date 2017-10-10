@@ -3,7 +3,6 @@
 import { ConnectedRouter } from 'react-router-redux';
 import { Switch, Route, Link } from 'react-router-dom';
 
-
 export interface IRootProps {
 	/**
 	 * Объект истории для роутера

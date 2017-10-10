@@ -1,9 +1,6 @@
 
 import './../styles/main.scss';
 
-// import { render } from 'react-dom';
-// import * as React from 'react';
-
 
 import * as reduceReducers from 'reduce-reducers';
 import { configureStore } from './store/store';
@@ -17,7 +14,6 @@ import { Root } from './containers/Root';
 const createHistory = () => __DEV__ ? createHashHistory() : createBrowserHistory();
 const history = createHistory();
 const store = configureStore(history);
-
 const renderApp = (RootComponent) => {
 	ReactDOM.render(
 		<Provider store={store}  >

@@ -42,7 +42,8 @@ config.output = {
 config.resolve = {
     alias: {
         img: root('src/public/img'),
-        fonts: root('src/public/fonts')
+        fonts: root('src/public/fonts'),
+        styles: root('src/styles')
     },
     modules: [
         root('src/app'),
